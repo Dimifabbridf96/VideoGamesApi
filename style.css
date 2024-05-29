@@ -17,11 +17,6 @@ h2{
 .center-text{
     text-align: center;
 }
-.columns{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
 
 .card{
     height: 300px;
