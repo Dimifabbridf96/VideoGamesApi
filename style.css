@@ -23,3 +23,23 @@ h2{
 .center{
     margin: 3rem 7rem;
 }
+
+.center-div{
+    width: 50%;
+}
+
+.space{
+    margin: 20px ;
+}
+.searchBar{
+    height: 100px;
+}
+input{
+    height: fit-content;
+}
+i{
+    color: #fff;
+}
+.black{
+    background-color: black;
+}
