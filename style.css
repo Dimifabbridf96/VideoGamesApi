@@ -10,3 +10,10 @@
 .navbar-nav{
     justify-content: space-between;
 }
+h2{
+    padding: 40px 0;
+}
+
+.center-text{
+    text-align: center;
+}
