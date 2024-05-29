@@ -1,5 +1,4 @@
 .navbar-collapse{
-    justify-content: end;
     padding-right: 30px;
 }   
 
@@ -7,9 +6,7 @@
     text-align: center;
     font-size: 2em;
 }
-.navbar-nav{
-    justify-content: space-between;
-}
+
 h2{
     padding: 40px 0;
 }
@@ -19,6 +16,10 @@ h2{
 }
 
 .card{
-    height: 300px;
-    margin: 0px;
+    height: fit-content;
+    margin: 20px;
+}
+
+.center{
+    margin: 3rem 7rem;
 }

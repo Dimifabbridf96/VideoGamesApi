@@ -11,8 +11,8 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand col-3" href="#">Navbar</a>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav col-3">
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav col-3  justify-content-between">
               <a class="nav-link active" aria-current="page" href="index.html">Home</a>
               <a class="nav-link" aria-current="page" href="games.html">Games</a>
               <a class="nav-link" aria-current="page" href="movies.html">Movies</a>
@@ -22,22 +22,28 @@
       </nav>
 
       <h2 class="center-text"> Are you ready to dive in the world of visual entertainment ?</h2>
+      
       <div class="d-flex justify-content-around flex-wrap">
-        <div class="card col-lg-3 col-md-6 col-sm-12" >
-        <img src="..." class="card-img-top" alt="...">
+        <div class="card col-lg-5 col-sm-11" >
+        <img src="assets/controller.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="d-flex justify-content-center">
+            <a href="games.html" class="btn btn-primary center">Go somewhere</a>
+        </div>
+          
         </div>
       </div>
 
-      <div class="card col-lg-3 col-md-6 col-sm-12">
-        <img src="..." class="card-img-top" alt="...">
+      <div class="card col-lg-5 col-sm-11">
+        <img src="assets/film.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <div class="d-flex justify-content-center">
+            <a href="movies.html" class="btn btn-primary center">Go somewhere</a>
+        </div>
         </div>
       </div>
     </div>
