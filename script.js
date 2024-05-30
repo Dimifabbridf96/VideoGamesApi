@@ -18,6 +18,7 @@ function showGames(results){
 
     results.forEach(result => {
         const gameCard = document.createElement("div");
+        gameList.classList.add("d-flex", "justify-content-around", "flex-wrap")
         gameCard.classList.add("card", "col-lg-5", "col-sm-11");
 
         gameCard.innerHTML = `
