@@ -1,4 +1,6 @@
 let gameList = document.getElementById("gameList");
+let nextBtn = document.getElementById("next");
+
 const url = `https://api.rawg.io/api/games?key=${apiKey}`;
 
 function fetchGames(url){
@@ -29,5 +31,5 @@ function showGames(results){
         `;
             gameList.appendChild(gameCard);
     });
-}
+};
 fetchGames(url);
