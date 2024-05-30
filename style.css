@@ -66,11 +66,15 @@ i{
     color: black;
     margin-left: 10px;
 }
-
-.flexEnd{
-    justify-content: flex-end;
+.bigP{
+    font-size: 120%;
 }
-
 .red{
     color: red;
+}
+.green{
+    color: green
+}
+.orange{
+    color: orange
 }

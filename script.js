@@ -1,7 +1,7 @@
 let gameList = document.getElementById("gameList");
 let nextBtn = document.getElementById("next");
 let nextPage = null;
-let meta = document.getElementById("metacritic")
+
 
 const url = `https://api.rawg.io/api/games?key=${apiKey}`;
 
@@ -25,21 +25,22 @@ function showGames(results){
         const gameCard = document.createElement("div");
         gameList.classList.add("d-flex", "justify-content-around", "flex-wrap", "black")
         gameCard.classList.add("card", "col-lg-3","col-md-6", "col-sm-11", "games");
-
+        
         gameCard.innerHTML = `
         <img src="${result.background_image}" class="card-img-top gameHeight " alt="${result.name} card image">
         <div class="card-body">
           <h5 class="card-title">${result.name}</h5>
           <div class="d-flex flex-column align-items-end justify-content-around ">
-          <i class="fa-solid fa-star  yellow">
+          <i class="fa-solid fa-star yellow">
             <p class="card-text floatRight info ">${result.rating}</p>
           </i>
-          <p class="card-text align-self-start" id="metacritic"><strong>Metacritic score:</strong> ${result.metacritic}</p>
+          <p class="card-text align-self-start bigP" ><strong>Metacritic score:</strong><span class="${getMetacriticScore(result.metacritic)} space" class="metacritic" ><strong>${result.metacritic}</strong></span> </p>
           <i class="fa-solid fa-calendar red floatRight">  <p class="card-text floatRight info ">${result.released}</p></i>
         </div>
 
         </div>
         `;
+        
             gameList.appendChild(gameCard);
     });
 };
@@ -50,3 +51,15 @@ nextBtn.addEventListener("click", ()=>{
         fetchGames(nextPage);
     }
 })
+ let r = document.getElementsByTagName("span");
+function getMetacriticScore(vote){
+   
+    if(vote > 90){
+        return "green";
+    }else if (vote >= 75){
+        return "orange";
+    }else{
+        return "red"
+    }
+};
+
