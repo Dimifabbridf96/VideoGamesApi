@@ -5,7 +5,12 @@ function fetchGames(url){
 
     fetch(url)
         .then(response => response.json())
-        .then(data =>{console.log(data)
+        .then(data =>{
+            if(data.results && data.count > 0){
+                console.log(data.count);
+                console.log(data.results);
+                showGames(data.results);
+            }
 
         }) 
 }
