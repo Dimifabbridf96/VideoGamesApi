@@ -1,10 +1,12 @@
 let gameList = document.getElementsByClassName("gameList");
 const url = `https://api.rawg.io/api/games?key=${apiKey}`
 
-document.addEventListener("load", fetchGames());
-
 function fetchGames(url){
+
     fetch(url)
-    .then(result => result.json());
+        .then(response => response.json())
+        .then(data =>{console.log(data)
+
+        }) 
 }
 fetchGames(url);
