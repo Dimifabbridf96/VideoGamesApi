@@ -1,6 +1,8 @@
 let gameList = document.getElementById("gameList");
 let nextBtn = document.getElementById("next");
+let previousBtn = document.getElementById("prev");
 let nextPage = null;
+let previousPage = null;
 
 
 const url = `https://api.rawg.io/api/games?key=${apiKey}`;
@@ -12,6 +14,7 @@ function fetchGames(url){
         .then(data =>{
             if(data.count > 0){
                 nextPage = data.next ? data.next : null;
+                previousPage = data.previous ? data.previous : null;
                 showGames(data.results);
             }
 
@@ -51,7 +54,12 @@ nextBtn.addEventListener("click", ()=>{
         fetchGames(nextPage);
     }
 })
- let r = document.getElementsByTagName("span");
+
+previousBtn.addEventListener("click", ()=>{
+    if(previousPage){
+        fetchGames(previousPage);
+    }
+})
 function getMetacriticScore(vote){
    
     if(vote > 90){
