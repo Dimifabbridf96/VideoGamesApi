@@ -47,9 +47,30 @@ i{
     background-color: black;
 }
 .games{
-    height: 300px;
+    height: 375px;
     border-radius: 20px;
 }
 .gameHeight{
     aspect-ratio: 16/9;
+}
+
+.floatRight{
+    float: right;
+}
+.yellow{
+    color: rgb(235, 235, 60);
+    margin-top: 10px;
+}
+
+.info{
+    color: black;
+    margin-left: 10px;
+}
+
+.flexEnd{
+    justify-content: flex-end;
+}
+
+.red{
+    color: red;
 }
