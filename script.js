@@ -1,6 +1,7 @@
 let gameList = document.getElementById("gameList");
 let nextBtn = document.getElementById("next");
 let nextPage = null;
+let meta = document.getElementById("metacritic")
 
 const url = `https://api.rawg.io/api/games?key=${apiKey}`;
 
@@ -29,12 +30,14 @@ function showGames(results){
         <img src="${result.background_image}" class="card-img-top gameHeight " alt="${result.name} card image">
         <div class="card-body">
           <h5 class="card-title">${result.name}</h5>
-          <div class="d-flex flex-column align-items-end">
+          <div class="d-flex flex-column align-items-end justify-content-around ">
           <i class="fa-solid fa-star  yellow">
             <p class="card-text floatRight info ">${result.rating}</p>
-          </i><br>
+          </i>
+          <p class="card-text align-self-start" id="metacritic"><strong>Metacritic score:</strong> ${result.metacritic}</p>
           <i class="fa-solid fa-calendar red floatRight">  <p class="card-text floatRight info ">${result.released}</p></i>
         </div>
+
         </div>
         `;
             gameList.appendChild(gameCard);

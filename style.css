@@ -47,7 +47,7 @@ i{
     background-color: black;
 }
 .games{
-    height: 375px;
+    height: min-content;
     border-radius: 20px;
 }
 .gameHeight{
