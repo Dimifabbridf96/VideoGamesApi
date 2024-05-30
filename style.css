@@ -16,8 +16,11 @@ h2{
 }
 
 .card{
-    height: fit-content;
     margin: 20px;
+    box-shadow: 10px 5px 5px #888888;
+}
+.card:hover{
+    transform: scale(1.05);
 }
 
 .center{
@@ -42,4 +45,11 @@ i{
 }
 .black{
     background-color: black;
+}
+.games{
+    height: 300px;
+    border-radius: 20px;
+}
+.gameHeight{
+    aspect-ratio: 16/9;
 }
