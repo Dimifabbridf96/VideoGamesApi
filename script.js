@@ -3,7 +3,7 @@ let nextBtn = document.getElementById("next");
 let previousBtn = document.getElementById("prev");
 let nextPage = null;
 let previousPage = null;
-let allGames = [];
+let input = document.getElementById("search");
 
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
@@ -16,9 +16,7 @@ function fetchGames(url){
             if(data.count > 0){
                 nextPage = data.next ? data.next : null;
                 previousPage = data.previous ? data.previous : null;
-                allGames = allGames.concat(data);
                 showGames(data.results);
-                console.log(allGames);
             }
 
         }) 
@@ -75,12 +73,19 @@ function getMetacriticScore(vote){
 
 
 
-function search(){
+function submit(){
     let input = document.getElementById("search").value;
-
-    let camelCaseInput = input.slice(0,1).toUpperCase() + input.slice(1).toLowerCase();
-       console.log(camelCaseInput);
-
+    let camelCaseInput = input.split(" ")
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    console.log(camelCaseInput);
     url = `https://api.rawg.io/api/games?key=${apiKey}&search="${camelCaseInput}"`;
     fetchGames(url);
 };
+
+
+input.addEventListener("keypress", event => {
+    if(event.key === "Enter"){
+        event.preventDefault();
+        submit();
+    }
+})
