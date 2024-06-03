@@ -3,10 +3,10 @@ let nextBtn = document.getElementById("next");
 let previousBtn = document.getElementById("prev");
 let nextPage = null;
 let previousPage = null;
-let allGames = []
+let allGames = [];
 
 
-const url = `https://api.rawg.io/api/games?key=${apiKey}`;
+let url = `https://api.rawg.io/api/games?key=${apiKey}`;
 
 function fetchGames(url){
 
@@ -16,9 +16,9 @@ function fetchGames(url){
             if(data.count > 0){
                 nextPage = data.next ? data.next : null;
                 previousPage = data.previous ? data.previous : null;
-                allGames = allGames.concat(data.results);
+                allGames = allGames.concat(data);
                 showGames(data.results);
-                console.log(data.results);
+                console.log(allGames);
             }
 
         }) 
@@ -77,15 +77,10 @@ function getMetacriticScore(vote){
 
 function search(){
     let input = document.getElementById("search").value;
-    input = input.toLowerCase();
-    let cardGame = document.querySelectorAll(".games")
-    let gameName = document.querySelectorAll(".gameName");
-    cardGame.forEach((game, index) =>{
-            let name = gameName[index].textContent.toLowerCase();
-            if(name.includes(input)){
-                game.style.display = "block";
-            }else{
-                game.style.display = "none";
-            }
-        });
-    };
+
+    let camelCaseInput = input.slice(0,1).toUpperCase() + input.slice(1).toLowerCase();
+       console.log(camelCaseInput);
+
+    url = `https://api.rawg.io/api/games?key=${apiKey}&search="${camelCaseInput}"`;
+    fetchGames(url);
+};
