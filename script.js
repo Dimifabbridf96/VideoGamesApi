@@ -3,6 +3,7 @@ let nextBtn = document.getElementById("next");
 let previousBtn = document.getElementById("prev");
 let nextPage = null;
 let previousPage = null;
+let allGames = []
 
 
 const url = `https://api.rawg.io/api/games?key=${apiKey}`;
@@ -15,7 +16,9 @@ function fetchGames(url){
             if(data.count > 0){
                 nextPage = data.next ? data.next : null;
                 previousPage = data.previous ? data.previous : null;
+                allGames = allGames.concat(data.results);
                 showGames(data.results);
+                console.log(data.results);
             }
 
         }) 
@@ -32,7 +35,7 @@ function showGames(results){
         gameCard.innerHTML = `
         <img src="${result.background_image}" class="card-img-top gameHeight " alt="${result.name} card image">
         <div class="card-body">
-          <h5 class="card-title">${result.name}</h5>
+          <h5 class="card-title gameName">${result.name}</h5>
           <div class="d-flex flex-column align-items-end justify-content-around ">
           <i class="fa-solid fa-star yellow">
             <p class="card-text floatRight info ">${result.rating}</p>
@@ -51,7 +54,7 @@ fetchGames(url);
 
 nextBtn.addEventListener("click", ()=>{
     if(nextPage){
-        fetchGames(nextPage);
+     fetchGames(nextPage);
     }
 })
 
@@ -61,7 +64,6 @@ previousBtn.addEventListener("click", ()=>{
     }
 })
 function getMetacriticScore(vote){
-   
     if(vote > 90){
         return "green";
     }else if (vote >= 75){
@@ -71,3 +73,19 @@ function getMetacriticScore(vote){
     }
 };
 
+
+
+function search(){
+    let input = document.getElementById("search").value;
+    input = input.toLowerCase();
+    let cardGame = document.querySelectorAll(".games")
+    let gameName = document.querySelectorAll(".gameName");
+    cardGame.forEach((game, index) =>{
+            let name = gameName[index].textContent.toLowerCase();
+            if(name.includes(input)){
+                game.style.display = "block";
+            }else{
+                game.style.display = "none";
+            }
+        });
+    };
