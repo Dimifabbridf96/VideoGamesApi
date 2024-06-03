@@ -4,6 +4,7 @@ let previousBtn = document.getElementById("prev");
 let nextPage = null;
 let previousPage = null;
 let input = document.getElementById("search");
+let bigP = document.getElementsByClassName("bigP");
 
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
@@ -62,7 +63,12 @@ previousBtn.addEventListener("click", ()=>{
     }
 })
 function getMetacriticScore(vote){
-    if(vote > 90){
+    if(vote === null){
+        let bigP= document.querySelectorAll(".bigP")
+         bigP.forEach(bigP => bigP.classList.add("hidden"));
+         return "hidden";
+    }
+    else if(vote > 90){
         return "green";
     }else if (vote >= 75){
         return "orange";
