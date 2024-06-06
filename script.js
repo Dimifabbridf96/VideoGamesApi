@@ -5,10 +5,11 @@ let nextPage = null;
 let previousPage = null;
 let input = document.getElementById("search");
 let bigP = document.getElementsByClassName("bigP");
+let ratingPlus = document.getElementById("rating+");
+let ratingMinus = document.getElementById("rating-");
 
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
-console.log(url);
 
 function fetchGames(url){
 
@@ -85,7 +86,7 @@ function submit(){
     let camelCaseInput = input.split(" ")
     .map(word => word.charAt(0).toUpperCase() + word.slice(1));
     console.log(camelCaseInput);
-    url = `https://api.rawg.io/api/games?key=${apiKey}&search="${camelCaseInput}"`;
+    url = url +`&search=${camelCaseInput}`
     fetchGames(url);
 };
 
@@ -95,4 +96,24 @@ input.addEventListener("keypress", event => {
         event.preventDefault();
         submit();
     }
-})
+});
+
+ratingPlus.addEventListener("click", ()=>{
+    if(url.search("&ordering") === -1){
+         url = url + "&ordering=-rating";
+         fetchGames(url)}else{
+            url = url.replace("&ordering=rating", "&ordering=-rating");
+            console.log(url);
+            fetchGames(url);
+         }
+        })
+
+ratingMinus.addEventListener("click", ()=>{
+    if(url.search("&ordering") === -1){
+         url = url + "&ordering=rating";
+         fetchGames(url)}else{
+            url = url.replace("&ordering=-rating", "&ordering=rating");
+            console.log(url);
+            fetchGames(url);
+         }
+        })
