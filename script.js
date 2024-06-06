@@ -8,6 +8,7 @@ let bigP = document.getElementsByClassName("bigP");
 
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
+console.log(url);
 
 function fetchGames(url){
 
@@ -36,11 +37,11 @@ function showGames(results){
         <div class="card-body">
           <h5 class="card-title gameName">${result.name}</h5>
           <div class="d-flex flex-column align-items-end justify-content-around ">
-          <i class="fa-solid fa-star yellow">
+          <i class="fa-solid fa-star yellow rating">
             <p class="card-text floatRight info ">${result.rating}</p>
           </i>
           <p class="card-text align-self-start bigP" ><strong>Metacritic score:</strong><span class="${getMetacriticScore(result.metacritic)} space" class="metacritic" ><strong>${result.metacritic}</strong></span> </p>
-          <i class="fa-solid fa-calendar red floatRight">  <p class="card-text floatRight info ">${result.released}</p></i>
+          <i class="fa-solid fa-calendar red floatRight released">  <p class="card-text floatRight info ">${result.released}</p></i>
         </div>
 
         </div>

@@ -64,13 +64,19 @@ i{
 
 .info{
     color: black;
-    margin: 10px;
+    margin-left: 10px;
+}
+.rating{
+    margin-bottom: 10px;
 }
 .bigP{
     font-size: 120%;
 }
 .red{
     color: red;
+}
+.released{
+    margin-top: 20px;
 }
 .green{
     color: green
