@@ -27,24 +27,37 @@
        <i class="fa-solid fa-magnifying-glass" ></i><input type="text" id="search" class="space col-4 search"> <input type="submit" id="submit" value="Submit" onclick="submit()" class="bg-danger text-light"> 
       </div>
 
-      <div class="bg-danger d-flex justify-content-around">
+      <div class="d-flex justify-content-around ">
+
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle label" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Rating
         </button>
         <ul class="dropdown-menu" >
-          <li class="dropdown-item" id="rating+"> Better rating </a></li>
-          <li class="dropdown-item" id="rating-"> Worst rating</a></li>
+          <li class="dropdown-item" id="rating+"> Better rating </li>
+          <li class="dropdown-item" id="rating-"> Worst rating</li>
         </ul>
       </div>
+
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle label" type="button" data-bs-toggle="dropdown" aria-expanded="false">
           Metacritic
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item 90"> 90+ </a></li>
-          <li><a class="dropdown-item 80">80+</a></li>
-          <li><a class="dropdown-item 70">70+</a></li>
+        <ul class="dropdown-menu" >
+          <li class="dropdown-item metaC" value="80"> 80+ </li>
+          <li class="dropdown-item metaC" value="60"> 60/80 </li>
+          <li class="dropdown-item metaC" value="40"> 40/60 </li>
+          <li class="dropdown-item metaC" value="20"> 20/40 </li>
+        </ul>
+      </div>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle label mb-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Released
+        </button>
+        <ul class="dropdown-menu" >
+          <li class="dropdown-item" id="older"> Older games </li>
+          <li class="dropdown-item" id="newer"> Newer games </li>
         </ul>
       </div>
 

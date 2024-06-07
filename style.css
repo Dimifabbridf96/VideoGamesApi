@@ -32,7 +32,7 @@ h2{
 }
 
 .space{
-    margin: 20px ;
+    margin: 10px ;
 }
 .searchBar{
     height: 100px;
@@ -75,9 +75,6 @@ i{
 .red{
     color: red;
 }
-.released{
-    margin-top: 20px;
-}
 .green{
     color: green
 }
@@ -87,3 +84,9 @@ i{
 .hidden{
     display: none;
 }
+
+@media only screen and (min-width: 768px) {
+   .label, .dropdown-item{
+    font-size: 25px;
+}
+  }

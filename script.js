@@ -7,9 +7,14 @@ let input = document.getElementById("search");
 let bigP = document.getElementsByClassName("bigP");
 let ratingPlus = document.getElementById("rating+");
 let ratingMinus = document.getElementById("rating-");
+let metacritics = document.querySelectorAll(".metaC");
+let older = document.getElementById("older");
+let newer = document.getElementById("newer");
+
 
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
+console.log(url);
 
 function fetchGames(url){
 
@@ -19,7 +24,15 @@ function fetchGames(url){
             if(data.count > 0){
                 nextPage = data.next ? data.next : null;
                 previousPage = data.previous ? data.previous : null;
+                console.log(nextPage);
+                console.log(previousPage);
                 showGames(data.results);
+            } if(nextPage == null){
+                nextBtn.style.display = "none";
+            }else{
+                nextBtn.style.display = "block.";
+            }else{
+                gameList.innerHTML = `<h1 class="text-center">No games found</h1>`;
             }
 
         }) 
@@ -39,10 +52,10 @@ function showGames(results){
           <h5 class="card-title gameName">${result.name}</h5>
           <div class="d-flex flex-column align-items-end justify-content-around ">
           <i class="fa-solid fa-star yellow rating">
-            <p class="card-text floatRight info ">${result.rating}</p>
+            <p class="card-text floatRight info infoRating ${getRatingNull(result.rating)} ">${result.rating}</p>
           </i>
-          <p class="card-text align-self-start bigP" ><strong>Metacritic score:</strong><span class="${getMetacriticScore(result.metacritic)} space" class="metacritic" ><strong>${result.metacritic}</strong></span> </p>
-          <i class="fa-solid fa-calendar red floatRight released">  <p class="card-text floatRight info ">${result.released}</p></i>
+          <p class="card-text align-self-start bigP" ><strong>Metacritic score:</strong><span class="${getMetacriticScore(result.metacritic)} space"><strong>${result.metacritic}</strong></span> </p>
+          <i class="fa-solid fa-calendar red floatRight">  <p class="card-text floatRight info infoRelease ${getReleasedNull(result.released)} ">${result.released}</p></i>
         </div>
 
         </div>
@@ -67,7 +80,7 @@ previousBtn.addEventListener("click", ()=>{
 function getMetacriticScore(vote){
     if(vote === null){
         let bigP= document.querySelectorAll(".bigP")
-         bigP.forEach(bigP => bigP.classList.add("hidden"));
+         bigP.forEach(bigP => bigP.innerHTML = "Metacritic score not available");
          return "hidden";
     }
     else if(vote > 90){
@@ -79,7 +92,17 @@ function getMetacriticScore(vote){
     }
 };
 
+function getReleasedNull(date){
+    if(date === null){
+        let infos = document.querySelectorAll(".infoRelease");
+        infos.forEach(info => info.innerHTML = "Released date not available");
+}};
 
+function getRatingNull(rate){
+    if(rate === null || rate === 0){
+        let ratings = document.querySelectorAll(".infoRating");
+        ratings.forEach( rating => rating.innerHTML = "Rating not available");
+}};
 
 function submit(){
     let input = document.getElementById("search").value;
@@ -113,6 +136,40 @@ ratingMinus.addEventListener("click", ()=>{
          url = url + "&ordering=rating";
          fetchGames(url)}else{
             url = url.replace("&ordering=-rating", "&ordering=rating");
+            console.log(url);
+            fetchGames(url);
+         }
+        })
+
+    
+metacritics.forEach(meta => meta.addEventListener("click", ()=>{
+    let metacriticValue = meta.value;
+    if(url.search("&metacritic") === -1){
+            url = url + `&metacritic=${metacriticValue},${metacriticValue + 20}`;
+            console.log(url);
+            fetchGames(url);
+        }else{
+            url = url.replace(/&metacritic=\d+/, `&metacritic=${metacriticValue}`);
+            console.log(url);
+        fetchGames(url);}
+    }));
+
+newer.addEventListener("click", ()=>{
+    if(url.search("&ordering") === -1){
+         url = url + "&ordering=-released";
+         fetchGames(url)
+        } else{
+            url = url.replace("&ordering=released", "&ordering=-released");
+            console.log(url);
+            fetchGames(url);
+         }
+        })
+
+older.addEventListener("click", ()=>{
+    if(url.search("&ordering") === -1){
+         url = url + "&ordering=released";
+         fetchGames(url)}else{
+            url = url.replace("&ordering=-released", "&ordering=released");
             console.log(url);
             fetchGames(url);
          }
