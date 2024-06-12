@@ -117,12 +117,18 @@ function submit() {
     let input = document.getElementById("search").value;
     let words = input.split(" ");
     let camelCaseInput = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    console.log(camelCaseInput.length);
+
+    if(camelCaseInput.length > 5){
+        alert("You can only search for 5 words at a time");
+        return;
+    }
 
     if(url.search("&search") === -1){
         url = url +`&search=${camelCaseInput}`;
         fetchGames(url);
     } else {
-        url = url.replace(/&search=\w+(\,\w+)?/, `&search=${camelCaseInput}`);
+        url = url.replace(/&search=\w+(\,\w+)(\,\w+)(\,\w+)(\,\w+)?/, `&search=${camelCaseInput}`);
         console.log(url);
         fetchGames(url);
     }
