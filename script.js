@@ -1,4 +1,6 @@
 let gameList = document.getElementById("gameList");
+let games = document.getElementsByClassName("games");
+let spinner = document.getElementById("spinner");
 let nextBtn = document.getElementById("next");
 let previousBtn = document.getElementById("prev");
 let nextPage = null;
@@ -11,13 +13,13 @@ let metacritics = document.querySelectorAll(".metaC");
 let older = document.getElementById("older");
 let newer = document.getElementById("newer");
 
-
+console.log(games);
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
 console.log(url);
 
 function fetchGames(url){
-
+    spinner.style.display = "block";
     fetch(url)
            .then(response => response.json())
        .then(data =>{
@@ -27,7 +29,7 @@ function fetchGames(url){
                 console.log(nextPage);
                 console.log(previousPage);
                 showGames(data.results);
-            } else if(nextPage == null){
+            }if(nextPage == null){
                 nextBtn.style.display = "none";
             } else {
                 nextBtn.style.display = "block";
@@ -38,14 +40,17 @@ function fetchGames(url){
             }
         })
             .catch(err => {
-                console.log(err);
-                gameList.innerHTML = `<h1 class="text-center">No games found</h1>`;
-            });
+                if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
+                    gameList.innerHTML = `<h1 class="text-center">Failed to fetch data, referesh the page </h1>`;}
+                    else{
+                    console.log(err);
+                    gameList.innerHTML = `<h1 class="text-center">No games found</h1>`;
+                }
+            })
         }
 
 function showGames(results){
     gameList.innerHTML = "";
-
     results.forEach(result => {
         const gameCard = document.createElement("div");
         gameList.classList.add("d-flex", "justify-content-around", "flex-wrap", "black")
@@ -65,6 +70,7 @@ function showGames(results){
 
         </div>
         `;
+
         if (result.metacritic === null || result.metacritic === 0) {
             const metacriticMessage = document.createElement("p");
             metacriticMessage.textContent = "Metacritic score not available";
@@ -84,10 +90,17 @@ function showGames(results){
             gameCard.querySelector(".infoRating").innerHTML = ratingMessage.textContent;
         }
             gameList.appendChild(gameCard);
+            gameCard.classList.add("hidden");
     });
-};
-fetchGames(url);
+    gameList.appendChild(spinner);
 
+    setTimeout(() => {
+        const gameCards = document.querySelectorAll(".hidden");
+        gameCards.forEach(card => card.classList.remove("hidden"));
+        spinner.style.display = "none";
+    }, 2000);
+
+}
 nextBtn.addEventListener("click", ()=>{
     if(nextPage){
      fetchGames(nextPage, next);
@@ -99,6 +112,10 @@ previousBtn.addEventListener("click", ()=>{
         fetchGames(previousPage);
     }
 })
+
+fetchGames(url);
+
+
 function getMetacriticScore(vote){    
         if(vote > 90){
             return "green";
@@ -142,25 +159,28 @@ input.addEventListener("keypress", event => {
     }
 });
 
-ratingPlus.addEventListener("click", ()=>{
-    if(url.search("&ordering") === -1){
-         url = url + "&ordering=-rating";
-         fetchGames(url)}else{
-            url = url.replace("&ordering=rating", "&ordering=-rating");
-            console.log(url);
-            fetchGames(url);
-         }
-        })
+ratingPlus.addEventListener("click", () => {
+    if (url.search("&ordering=-rating") === -1 && url.search("&ordering=rating") === -1) {
+        url = url + "&ordering=-rating";
+    } else {
+        url = url.replace("&ordering=rating", "&ordering=-rating");
+        console.log(url);
+    }
+    fetchGames(url);
+});
+
+
 
 ratingMinus.addEventListener("click", ()=>{
-    if(url.search("&ordering") === -1){
+    if(url.search("&ordering=rating") === -1 && url.search("&ordering=-rating") === -1 ){
          url = url + "&ordering=rating";
-         fetchGames(url)}else{
+         }else{
             url = url.replace("&ordering=-rating", "&ordering=rating");
             console.log(url);
-            fetchGames(url);
+            ;
          }
-        })
+         fetchGames(url);
+    });
 
     
 metacritics.forEach(meta => meta.addEventListener("click", ()=>{
@@ -176,7 +196,7 @@ metacritics.forEach(meta => meta.addEventListener("click", ()=>{
     }));
 
 newer.addEventListener("click", ()=>{
-    if(url.search("&ordering") === -1){
+    if(url.search("&ordering =-released") === -1 && url.search("&ordering=released") === -1){
          url = url + "&ordering=-released";
          fetchGames(url)
         } else{
@@ -187,8 +207,9 @@ newer.addEventListener("click", ()=>{
         })
 
 older.addEventListener("click", ()=>{
-    if(url.search("&ordering") === -1){
-         url = url + "&ordering=released";
+    gameList.style.display = "none";
+    if(url.search("&ordering =released") === -1 && url.search("&ordering=-released") === -1){
+        url = url + "&ordering=released";
          fetchGames(url)}else{
             url = url.replace("&ordering=-released", "&ordering=released");
             console.log(url);
