@@ -13,7 +13,7 @@ let metacritics = document.querySelectorAll(".metaC");
 let older = document.getElementById("older");
 let newer = document.getElementById("newer");
 
-console.log(games);
+
 
 let url = `https://api.rawg.io/api/games?key=${apiKey}`;
 console.log(url);
