@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
-<body>
+<body class="black">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           <a class="navbar-brand col-3" href="#">Navbar</a>
@@ -20,6 +20,33 @@
           </div>
         </div>
       </nav>
+
+      <form action="" class="d-flex align-items-center flex-column">
+        <div class="form-floating d-flex flex-column col-6">
+            <input type="text" class="form-control" id="floatingName" placeholder="Name" required >
+            <label for="floatingName">Name:</label>
+        </div>
+        <div class="form-floating d-flex flex-column col-6">
+            <input type="email" class="form-control" id="floatingEmail" placeholder="Email Address" required>
+            <label for="floatingEmail">Email:</label>
+        </div>
+        <div class="form-group d-flex flex-column col-6">
+            <label for="rating" class="text-light">Rating:</label>
+            <select class="form-control" id="rating" name="rating" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-floating d-flex flex-column col-6">
+            <textarea class="form-control" id="floatingComments" rows="10" placeholder="Comments" required></textarea> 
+            <label for="floatingComments">Comments:</label>
+        </div>
+   
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
     
     <script src="script.js"></script>
 </body>
