@@ -103,6 +103,40 @@ form{
 #floatingComments{
     height: 100px;
 }
+
+.rating, .satisfaction {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse; 
+    justify-content: flex-end;
+  }
+  
+.rating input, .satisfaction input {
+  display: none;
+}
+.rating label, .satisfaction label {
+  font-size: 30px;
+  cursor: pointer;
+  color: #888888;
+}
+
+.rating label:hover,
+.rating label:hover ~ label { 
+  color: orange;
+}
+
+.satisfaction input:checked ~ label.neutral {
+    color: #FFA500; /* Custom color for neutral rating when checked */
+}
+
+.satisfaction input:checked ~ label.excited, 
+.satisfaction input:checked ~ label.happy {
+    color: #008000; /* Custom color for satisfied rating when checked */
+}
+
+.satisfaction input:checked ~ label.bad {
+    color: #FF0000; /* Custom color for dissatisfied rating when checked */
+}
 @media only screen and (min-width: 768px) {
    .label, .dropdown-item{
     font-size: 25px;
