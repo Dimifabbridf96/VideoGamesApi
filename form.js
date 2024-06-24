@@ -6,7 +6,12 @@ const commentsInput = document.getElementById("floatingComments");
 const ratingInputs = document.querySelectorAll("input[name='rating']");
 const satisfactionInputs = document.querySelectorAll("input[name='satisfaction']");
 const form = document.querySelector("form");
+const faceHearth = document.querySelector(".fa-face-grin-hearts");
 const faceSmile = document.querySelector('.fa-face-smile');
+const faceNeutral = document.querySelector('.fa-face-meh');
+const faceUpset = document.querySelector('.fa-face-angry');
+const faceSad = document.querySelector('.fa-face-sad-tear');
+
 
 // Add event listener to form submit event
 form.addEventListener("submit", function(event) {
@@ -64,6 +69,4 @@ function isValidEmail(email) {
   return regex.test(email);
 }
 
-  faceSmile.addEventListener('click', () => {
-    faceSmile.classList.toggle('excellent');
-  });
+

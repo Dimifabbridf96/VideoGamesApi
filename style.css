@@ -118,6 +118,7 @@ form{
   font-size: 30px;
   cursor: pointer;
   color: #888888;
+  margin: 10px;
 }
 
 .rating label:hover,
@@ -130,13 +131,25 @@ form{
 }
 
   
-  i.:hover {
-    color: #FFA500; /* Change color on hover */
-  }
-  
-  i.excellent {
-    color: #008000; /* Change color when active */
-  }
+.satisfaction input[type="radio"]:checked + label i.fa-face-grin-hearts {
+  color: #008000; /* Change the color to your desired color */
+}
+
+.satisfaction input[type="radio"]:checked + label i.fa-face-smile {
+  color: orange; /* Change the color to your desired color */
+}
+
+.satisfaction input[type="radio"]:checked + label i.fa-face-meh {
+  color: #FFA500; /* Change the color to your desired color */
+}
+
+.satisfaction input[type="radio"]:checked + label i.fa-face-angry {
+  color: #de3203; /* Change the color to your desired color */
+}
+
+.satisfaction input[type="radio"]:checked + label i.fa-face-sad-tear {
+  color: #ff0000; /* Change the color to your desired color */
+}
 
 @media only screen and (min-width: 768px) {
    .label, .dropdown-item{
