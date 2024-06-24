@@ -11,10 +11,6 @@ h2{
     padding: 40px 0;
 }
 
-.center-text{
-    text-align: center;
-}
-
 .card{
     margin: 20px;
     box-shadow: 10px 5px 5px #888888;
@@ -114,7 +110,7 @@ form{
 .rating input, .satisfaction input {
   display: none;
 }
-.rating label, i {
+.rating label, .satisfaction i {
   font-size: 30px;
   cursor: pointer;
   color: #888888;
@@ -161,12 +157,6 @@ form{
 @media (max-width: 576px) {
   .boxShadow {
     box-shadow: none;
-  }
-}
-
-@media (max-width: 520px) {
-  h5{
-    text-align: center;
   }
 }
 
