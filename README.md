@@ -18,8 +18,9 @@ The Game Catalog is a simple web application that allows users to browse and sea
 
 The web site is hosted on GitHub Pages on the url: https://dimifabbridf96.github.io/VideoGamesApi/
 
-to access the full functionality of the web site is needed an API key that is kept secret using a different file that is accessible only in development and not in production because not uploaded using .gitignore.
-I will provide the API key
+to access the full functionality of the web site is needed an API key that is kept secret using a different file that is accessible only in development, to improve the security of the website,and not in production because not uploaded using .gitignore.
+I will provide the API key in the planning analysis sheet to be replaced in the url variable
+<img src="assets/apiKey.png">
 
 ## Features
 
@@ -39,8 +40,8 @@ I will provide the API key
 ## Future features
 1. Implement user authentication and authorization to allow users to save their favorite games.
 2. Add game recommendations based on user preferences and browsing history.
-3.Implement a rating system for users to rate games.
-4.Add a wishlist feature for users to save games they want to play in the future.
+3. Implement a rating system for users to rate games.
+4. Add a wishlist feature for users to save games they want to play in the future.
 5.Implement a review system for users to leave reviews and ratings for games.
 6. Add platform and genre in game description
 
