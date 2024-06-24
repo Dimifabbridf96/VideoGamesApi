@@ -12,15 +12,7 @@ The Game Catalog is a simple web application that allows users to browse and sea
 
 ## Wireframe 
 
-<img src='assets/wireframeVideogamesApi.png'>
-
-## Hosted Site
-
-The web site is hosted on GitHub Pages on the url: https://dimifabbridf96.github.io/VideoGamesApi/
-
-to access the full functionality of the web site is needed an API key that is kept secret using a different file that is accessible only in development, to improve the security of the website,and not in production because not uploaded using .gitignore.
-I will provide the API key in the planning analysis sheet to be replaced in the url variable
-<img src="assets/apiKey.png">
+<img src="assets/videoGamesWireframe.jpeg"
 
 ## Features
 
