@@ -5,13 +5,21 @@ The Game Catalog is a simple web application that allows users to browse and sea
 ## Table of Contents
 
 - [Wireframe](#wireframe)
+- [Hosted Site](#hosted-site)
 - [Features](#features)
 - [Built With](#built-with)
 - [Future features](#future-features)
 
 ## Wireframe 
 
-<img src="assets/videoGamesWireframe.jpeg"
+<img src='assets/wireframeVideogamesApi.png'>
+
+## Hosted Site
+
+The web site is hosted on GitHub Pages on the url: https://dimifabbridf96.github.io/VideoGamesApi/
+
+to access the full functionality of the web site is needed an API key that is kept secret using a different file that is accessible only in development and not in production because not uploaded using .gitignore.
+I will provide the API key
 
 ## Features
 
@@ -24,9 +32,9 @@ The Game Catalog is a simple web application that allows users to browse and sea
 
 ## Built With
 
-1.HTML5 for structuring the web page.
-2.CSS3 for styling the web page.
-3.JavaScript (ES6) for implementing the dynamic functionality and interacting with the API.
+1. HTML5 for structuring the web page.
+2. CSS3 for styling the web page.
+3. JavaScript (ES6) for implementing the dynamic functionality and interacting with the API.
 
 ## Future features
 1. Implement user authentication and authorization to allow users to save their favorite games.
