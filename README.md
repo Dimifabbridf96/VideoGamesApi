@@ -1,14 +1,17 @@
-# Game Catalog
+# Gaming Paradise
 
-This is a simple web application that fetches game data from the RAWG API and displays it in a visually appealing manner.
+The Game Catalog is a simple web application that allows users to browse and search for games. It fetches game data from the RAWG API and displays it in a visually appealing manner, including game details such as name, rating, release date, and metacritic score. The application will also provide features like pagination, sorting, and filtering to enhance the user experience.
 
 ## Table of Contents
 
+- [Wireframe](#wireframe)
 - [Features](#features)
-- [Getting Started](#getting-started)
 - [Built With](#built-with)
-- [Contributing](#contributing)
-- [License](#license)
+- [Future features](#future-features)
+
+## Wireframe 
+
+<img src="assets/"
 
 ## Features
 
@@ -17,31 +20,19 @@ This is a simple web application that fetches game data from the RAWG API and di
 - Implement pagination to navigate through multiple pages of game data.
 - Allow users to search for games by name.
 - Sort games by rating, release date, and metacritic score.
-- Filter games based on specific genres or platforms.
-
-## Getting Started
-
-To get started with this project, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/game-catalog.git`
-2. Navigate to the project directory: `cd game-catalog`
-3. Open the project in your preferred code editor.
-4. Create a new branch for your feature or bug fix: `git checkout -b your-feature-or-bug-fix`
-5. Implement your changes and test them thoroughly.
-6. Commit your changes: `git commit -m "Add your commit message"`
-7. Push your changes to the remote repository: `git push origin your-feature-or-bug-fix`
-8. Create a pull request on GitHub to merge your changes into the main branch.
+- Leave a feedback
 
 ## Built With
 
-- HTML5
-- CSS3
-- JavaScript (ES6)
+1.HTML5 for structuring the web page.
+2.CSS3 for styling the web page.
+3.JavaScript (ES6) for implementing the dynamic functionality and interacting with the API.
 
-## Contributing
+## Future features
+1. Implement user authentication and authorization to allow users to save their favorite games.
+2. Add game recommendations based on user preferences and browsing history.
+3.Implement a rating system for users to rate games.
+4.Add a wishlist feature for users to save games they want to play in the future.
+5.Implement a review system for users to leave reviews and ratings for games.
+6. Add platform and genre in game description
 
-Contributions are welcome! If you have any ideas or suggestions for improving this project, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
