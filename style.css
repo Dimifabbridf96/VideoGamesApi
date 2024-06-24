@@ -114,7 +114,7 @@ form{
 .rating input, .satisfaction input {
   display: none;
 }
-.rating label, .satisfaction label {
+.rating label, i {
   font-size: 30px;
   cursor: pointer;
   color: #888888;
@@ -125,18 +125,19 @@ form{
   color: orange;
 }
 
-.satisfaction input:checked ~ label.neutral {
-    color: #FFA500; /* Custom color for neutral rating when checked */
+.rating input:checked ~ label {
+    color: orange;
 }
 
-.satisfaction input:checked ~ label.excited, 
-.satisfaction input:checked ~ label.happy {
-    color: #008000; /* Custom color for satisfied rating when checked */
-}
+  
+  i.:hover {
+    color: #FFA500; /* Change color on hover */
+  }
+  
+  i.excellent {
+    color: #008000; /* Change color when active */
+  }
 
-.satisfaction input:checked ~ label.bad {
-    color: #FF0000; /* Custom color for dissatisfied rating when checked */
-}
 @media only screen and (min-width: 768px) {
    .label, .dropdown-item{
     font-size: 25px;
