@@ -51,12 +51,6 @@ form.addEventListener("submit", function(event) {
   }
 
   // Check if satisfaction is selected
-  if (!Array.from(satisfactionInputs).some(input => input.checked)) {
-    alert("Please select your satisfaction level.");
-    isValid = false;
-  }
-
-  // Check if satisfaction is selected
 if (!Array.from(satisfactionInputs).some(input => input.checked)) {
   alert("Please select your satisfaction level.");
   isValid = false;
