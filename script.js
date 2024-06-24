@@ -15,7 +15,7 @@ let newer = document.getElementById("newer");
 
 
 
-let url = `https://api.rawg.io/api/games?key=${apiKey}`;
+let url = `https://api.rawg.io/api/games?key=b259f29c517940719a7779c9084f878c`;
 console.log(url);
 
 function fetchGames(url){
