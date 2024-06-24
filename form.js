@@ -56,6 +56,12 @@ form.addEventListener("submit", function(event) {
     isValid = false;
   }
 
+  // Check if satisfaction is selected
+if (!Array.from(satisfactionInputs).some(input => input.checked)) {
+  alert("Please select your satisfaction level.");
+  isValid = false;
+}
+
   // If all validations pass, submit the form
   if (isValid) {
     // Perform form submission logic here

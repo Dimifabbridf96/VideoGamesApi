@@ -20,22 +20,23 @@
           </div>
         </div>
       </nav>
-      <main class="bg-light mt-5 col-6 m-auto rounded-5 boxShadow">
+
+      <main class="bg-light mt-5 col-lg-6 col-md-8 col-11 m-auto rounded-5 boxShadow">
         <form action="" class="d-flex align-items-center flex-column ">
         <h1> Feedback Form</h1>
         <div class="form-floating d-flex flex-column col-8">
             <input type="text" class="form-control" id="floatingName" placeholder="First Name">
-            <label for="floatingName">Name:</label>
+            <label for="floatingName"> First Name</label>
         </div>
 
         <div class="form-floating d-flex flex-column col-8">
           <input type="text" class="form-control" id="floatingSurname" placeholder="Last Name">
-          <label for="floatingSurname">Last Name:</label>
+          <label for="floatingSurname">Last Name</label>
       </div>
         
         <div class="form-floating d-flex flex-column col-8">
             <input type="email" class="form-control" id="floatingEmail" placeholder="Email Address">
-            <label for="floatingEmail">Email:</label>
+            <label for="floatingEmail">Email</label>
         </div>
         <h5>How would you rate this tool ?</h5>
         <div class="rating">
@@ -50,26 +51,33 @@
           <input type="radio" id="star1" name="rating" value="1">
           <label for="star1">&#9733;</label>
       </div>
+      <h5>How satisfied are you with the experience ?</h5>
+
       <div class="satisfaction">
         <input type="radio" id="satisfaction-excited" name="satisfaction" value="excited" checked>
           <label for="satisfaction-excited" title="excellent"><i class="fa-solid fa-face-grin-hearts"></i></label>
 
           <input type="radio" id="satisfaction-happy" name="satisfaction" value="happy">
-          <label for="satisfaction-happy"><i class="fa-solid fa-face-smile"></i></label>
+          <label for="satisfaction-happy" title="happy"><i class="fa-solid fa-face-smile"></i></label>
 
           <input type="radio" id="satisfaction-neutral" name="satisfaction" value="neutral">
-          <label for="satisfaction-neutral"><i class="fa-solid fa-face-meh"></i></label>
+          <label for="satisfaction-neutral" title="neutral"><i class="fa-solid fa-face-meh"></i></label>
 
           <input type="radio" id="satisfaction-upset" name="satisfaction" value="upset">
-          <label for="satisfaction-upset" ><i class="fa-solid fa-face-angry"></i></label>
+          <label for="satisfaction-upset" title="upset" ><i class="fa-solid fa-face-angry"></i></label>
           
           <input type="radio" id="satisfaction-bad" name="satisfaction" value="bad">
-          <label for="satisfaction-bad" ><i class="fa-solid fa-face-sad-tear"></i></label>
+          <label for="satisfaction-bad" title="bad" ><i class="fa-solid fa-face-sad-tear"></i></label>
       </div>
+
+      <h5>Please leave us a comment to improve the service</h5>
+
       <div class="form-floating d-flex flex-column col-8">
+        
             <textarea class="form-control" id="floatingComments" rows="10" placeholder="Comments" required></textarea> 
             <label for="floatingComments">Comments:</label>
         </div>
+
    
         <button type="submit" class="btn btn-primary mb-5">Submit</button>
     </form>
