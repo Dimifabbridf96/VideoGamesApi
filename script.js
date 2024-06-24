@@ -92,8 +92,8 @@ function showGames(results){
             gameList.appendChild(gameCard);
             gameCard.classList.add("hidden");
     });
-    gameList.appendChild(spinner);
-
+    gameList.prepend(spinner);
+    
     setTimeout(() => {
         const gameCards = document.querySelectorAll(".hidden");
         gameCards.forEach(card => card.classList.remove("hidden"));
