@@ -11,7 +11,7 @@ The Game Catalog is a simple web application that allows users to browse and sea
 
 ## Wireframe 
 
-<img src="assets/"
+<img src="assets/videoGamesWireframe.jpeg"
 
 ## Features
 
