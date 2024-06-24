@@ -16,7 +16,6 @@ let newer = document.getElementById("newer");
 
 
 let url = `https://api.rawg.io/api/games?key=b259f29c517940719a7779c9084f878c`;
-console.log(url);
 
 function fetchGames(url){
     spinner.style.display = "block";
@@ -26,8 +25,6 @@ function fetchGames(url){
             if(data.count > 0){
                 nextPage = data.next? data.next : null;
                 previousPage = data.previous? data.previous : null;
-                console.log(nextPage);
-                console.log(previousPage);
                 showGames(data.results);
             }if(nextPage == null){
                 nextBtn.style.display = "none";
@@ -43,7 +40,6 @@ function fetchGames(url){
                 if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
                     gameList.innerHTML = `<h1 class="text-center">Failed to fetch data, referesh the page </h1>`;}
                     else{
-                    console.log(err);
                     gameList.innerHTML = `<h1 class="text-center">No games found</h1>`;
                 }
             })
@@ -134,7 +130,6 @@ function submit() {
     let input = document.getElementById("search").value;
     let words = input.split(" ");
     let camelCaseInput = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
-    console.log(camelCaseInput.length);
 
     if(camelCaseInput.length > 5){
         alert("You can only search for 5 words at a time");
@@ -146,7 +141,6 @@ function submit() {
         fetchGames(url);
     } else {
         url = url.replace(/&search=\w+(\,\w+)(\,\w+)(\,\w+)(\,\w+)?/, `&search=${camelCaseInput}`);
-        console.log(url);
         fetchGames(url);
     }
 }
@@ -164,7 +158,6 @@ ratingPlus.addEventListener("click", () => {
         url = url + "&ordering=-rating";
     } else {
         url = url.replace("&ordering=rating", "&ordering=-rating");
-        console.log(url);
     }
     fetchGames(url);
 });
@@ -176,8 +169,7 @@ ratingMinus.addEventListener("click", ()=>{
          url = url + "&ordering=rating";
          }else{
             url = url.replace("&ordering=-rating", "&ordering=rating");
-            console.log(url);
-            ;
+            
          }
          fetchGames(url);
     });
@@ -187,11 +179,9 @@ metacritics.forEach(meta => meta.addEventListener("click", ()=>{
     let metacriticValue = meta.value;
     if(url.search("&metacritic") === -1){
             url = url + `&metacritic=${metacriticValue},${metacriticValue + 20}`;
-            console.log(url);
             fetchGames(url);
         }else{
             url = url.replace(/&metacritic=\d+,\d+/, `&metacritic=${metacriticValue},${metacriticValue + 20}`);
-            console.log(url);
         fetchGames(url);}
     }));
 
@@ -201,7 +191,6 @@ newer.addEventListener("click", ()=>{
          fetchGames(url)
         } else{
             url = url.replace("&ordering=released", "&ordering=-released");
-            console.log(url);
             fetchGames(url);
          }
         })
@@ -212,7 +201,6 @@ older.addEventListener("click", ()=>{
         url = url + "&ordering=released";
          fetchGames(url)}else{
             url = url.replace("&ordering=-released", "&ordering=released");
-            console.log(url);
             fetchGames(url);
          }
         })
